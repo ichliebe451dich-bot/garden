@@ -1,205 +1,198 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><style>
-body{margin:0;overflow:hidden;font-family:Arial}#start{position:fixed;inset:0;background:#6d38d8;display:flex;justify-content:center;align-items:center}button{padding:16px 35px;border-radius:30px;border:none;font-size:28px}.door{position:fixed;top:0;width:50%;height:100%;background:#7b4be6;transition:2s;z-index:2}.left{left:0}.right{right:0}#garden{display:none;position:fixed;inset:0;background:linear-gradient(#ffb0c8,#7cb6ff 60%,#48a548 61%)}.flower{position:absolute;font-size:34px;cursor:pointer;animation:s 2s infinite alternate}@keyframes s{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}#msg{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:20px;max-width:300px}</style></head><body>
-<div id=start><button onclick='openGarden()'>Enter Garden</button></div><div class='door left' id=l></div><div class='door right' id=r></div>
-<div id=garden><div class="flower" style="left:9%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:12%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:15%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:18%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:21%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:10%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:13%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:16%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:19%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:22%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:9%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:12%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:15%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:18%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:21%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:10%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:13%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:16%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:19%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:22%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:9%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:12%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:15%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:18%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:21%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
-<div class="flower" style="left:39%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:42%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:45%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:48%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:51%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:40%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:43%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:46%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:49%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:52%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:39%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:42%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:45%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:48%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:51%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:40%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:43%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:46%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:49%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:52%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:39%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:42%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:45%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:48%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:51%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
-<div class="flower" style="left:69%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:72%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:75%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:78%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:81%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:70%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:73%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:76%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:79%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:82%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:69%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:72%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:75%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:78%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:81%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:70%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:73%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:76%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:79%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:82%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:69%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:72%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:75%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:78%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
-<div class="flower" style="left:81%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
-<div id=msg></div></div>
-<script>
-msgs=['haloo ayii, makasi uda hadir yaa, aku bersyukur bisa kenal kamuu.','jujur ajaa aku seneng tiap ada notif dari kamuu hehe.','aku ga sempurna, tapi aku bakal usahain selalu sayang sama kamuu.'];
-function openGarden(){l.style.left='-50%';r.style.right='-50%';setTimeout(()=>{start.style.display='none';garden.style.display='block';},1800);}
-function show(f,t){msg.innerHTML='<h2>'+f+'</h2><p>'+t+'</p><button onclick="msg.style.display=\'none\'">close</button>';msg.style.display='block';}
-</script></body></html>max-width:320px;
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<title>Enter Garden</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
 
-text-align:center;
-
-box-shadow:0 0 20px rgba(0,0,0,.2);
-
+body{
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition: background 3s linear;
+  background: linear-gradient(#b57cff,#d6b3ff);
 }
 
+/* DAY NIGHT */
+body.night{
+  background: linear-gradient(#0b0b2a,#1b1440);
+}
 
+/* ENTER */
+#enterBtn{
+  padding:20px 40px;
+  font-size:22px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:white;
+  color:#6a2bd6;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  z-index:10;
+}
+
+/* DOOR */
+#door{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#2b1b3f;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  perspective:1000px;
+}
+
+.door-panel{
+  width:120px;
+  height:200px;
+  background:#5e3a8c;
+  margin:10px;
+  transform-origin:left;
+  animation: none;
+}
+
+#door.open .left{
+  animation: openLeft 2s forwards;
+}
+#door.open .right{
+  animation: openRight 2s forwards;
+}
+
+@keyframes openLeft{
+  to{ transform: rotateY(-120deg); }
+}
+@keyframes openRight{
+  to{ transform: rotateY(120deg); }
+}
+
+/* GARDEN */
+#garden{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.flowerBox{
+  margin-top:20px;
+  max-width:500px;
+  font-size:18px;
+  line-height:1.6;
+  min-height:120px;
+}
+
+/* flowers */
+.flowers{
+  display:flex;
+  gap:30px;
+  margin-top:30px;
+}
+
+.flower{
+  font-size:40px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.flower:hover{
+  transform:scale(1.3);
+}
 </style>
-
 </head>
+
 <body>
 
+<button id="enterBtn">enter garden</button>
 
-<div id="start">
-
-<button onclick="openGarden()">
-
-Enter Garden
-
-</button>
-
+<div id="door">
+  <div class="door-panel left"></div>
+  <div class="door-panel right"></div>
 </div>
-
-
-
-<div class="door left" id="left"></div>
-<div class="door right" id="right"></div>
-
-
 
 <div id="garden">
+  <h1>🌿 Welcome to our Garden</h1>
 
+  <div class="flowers">
+    <div class="flower" onclick="showText(0)">🌹</div>
+    <div class="flower" onclick="showText(1)">🌷</div>
+    <div class="flower" onclick="showText(2)">🌻</div>
+  </div>
 
-<div class="flower"
-style="left:15%;bottom:80px;"
-onclick="showMsg('🌹','haloo ayii, makasi uda hadir yaa, aku bersyukur banget bisa kenal kamuu.')">
-🌹
+  <div class="flowerBox" id="text"></div>
 </div>
 
-
-<div class="flower"
-style="left:35%;bottom:120px;"
-onclick="showMsg('🌷','aku ga janji jadi orang paling sempurna, tapi aku bakal usahain jadi orang yang selalu sayang sama kamuu.')">
-🌷
-</div>
-
-
-<div class="flower"
-style="left:55%;bottom:90px;"
-onclick="showMsg('🌻','kalo suatu hari kamu capee, sini cerita, aku mau dengerinn semuanya.')">
-🌻
-</div>
-
-
-<div class="flower"
-style="left:75%;bottom:130px;"
-onclick="showMsg('🌸','jujur ajaa, aku seneng banget tiap ada notif dari kamuu hehe.')">
-🌸
-</div>
-
-
-
-<div id="message"></div>
-
-
-</div>
-
-
-
+<audio id="music" src="lagu.mp3" loop></audio>
 
 <script>
+const enterBtn = document.getElementById("enterBtn");
+const door = document.getElementById("door");
+const garden = document.getElementById("garden");
+const textBox = document.getElementById("text");
+const music = document.getElementById("music");
 
+let night = false;
 
-function openGarden(){
+/* background cycle */
+setInterval(()=>{
+  night = !night;
+  document.body.classList.toggle("night", night);
+}, 6000);
 
-document.getElementById("left").style.left="-50%";
+/* enter garden */
+enterBtn.onclick = () => {
+  enterBtn.style.display = "none";
+  door.style.display = "flex";
 
-document.getElementById("right").style.right="-50%";
+  setTimeout(()=>{
+    door.classList.add("open");
 
+    setTimeout(()=>{
+      door.style.display = "none";
+      garden.style.display = "flex";
+      music.play();
+    }, 2000);
 
-setTimeout(()=>{
+  }, 300);
+};
 
-document.getElementById("start").style.display="none";
+/* romantic texts */
+const flowers = [
+`🌹 Mawar:
+Aku mungkin tidak sempurna, tapi aku akan selalu kembali padamu, seperti mawar yang tetap mekar meski berduri.`,
 
-document.getElementById("garden").style.display="block";
+`🌷 Tulip:
+Kalau kamu tanya kenapa aku bertahan… jawabannya sederhana, karena kamu rumah yang aku cari.`,
 
-},1800);
+`🌻 Matahari:
+Kalau kamu gelap, aku jadi terangmu. Kalau kamu lelah, aku jadi tenangmu.`
+];
 
+/* typing effect */
+function typeText(text, i=0){
+  textBox.innerHTML = "";
+  function typing(){
+    if(i < text.length){
+      textBox.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 25);
+    }
+  }
+  typing();
 }
 
-
-
-function showMsg(flower,text){
-
-let box=document.getElementById("message");
-
-box.innerHTML=`
-<h2>${flower}</h2>
-
-<p>${text}</p>
-
-<button onclick="closeMsg()">close</button>
-
-`;
-
-box.style.display="block";
-
+function showText(index){
+  typeText(flowers[index]);
 }
-
-
-
-function closeMsg(){
-
-document.getElementById("message").style.display="none";
-
-}
-
 </script>
 
 </body>
