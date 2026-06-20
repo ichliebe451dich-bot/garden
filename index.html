@@ -1,29 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Garden For Ayi</title>
 
 <style>
 
-/* CSS PART 2 DISINI */
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial;
+}
+
+#start{
+position:absolute;
+width:100%;
+height:100vh;
+background:#6c3fd6;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+button{
+padding:18px 40px;
+font-size:25px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#6c3fd6;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+
+.door{
+position:absolute;
+top:0;
+width:50%;
+height:100vh;
+background:#7d52e5;
+transition:2s;
+z-index:9;
+}
+
+.left{
+left:0;
+}
+
+.right{
+right:0;
+}
+
+
+#garden{
+
+display:none;
+width:100%;
+height:100vh;
+
+background:linear-gradient(
+to top,
+#4CAF50 0%,
+#4CAF50 35%,
+#8fd3ff 100%
+);
+
+position:relative;
+overflow:hidden;
+}
+
+
+.flower{
+position:absolute;
+font-size:55px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.flower:hover{
+transform:scale(1.2);
+}
+
+
+#message{
+
+position:absolute;
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+display:none;
+
+max-width:320px;
+
+text-align:center;
+
+box-shadow:0 0 20px rgba(0,0,0,.2);
+
+}
+
 
 </style>
 
 </head>
-
 <body>
 
 
-<!-- HALAMAN AWAL -->
-
 <div id="start">
 
-<button id="enter">
+<button onclick="openGarden()">
 
 Enter Garden
 
@@ -33,80 +134,102 @@ Enter Garden
 
 
 
-<!-- PINTU -->
-
-<div class="door left"></div>
-<div class="door right"></div>
+<div class="door left" id="left"></div>
+<div class="door right" id="right"></div>
 
 
-
-
-<!-- TAMAN -->
 
 <div id="garden">
 
 
-<audio id="music" loop>
-
-<source src="lagu.mp3">
-
-</audio>
-
-
-
-<h1 class="title">
-
-Garden For Ayi 🌸
-
-</h1>
-
-
-
-<div class="counter">
-
-Flowers : <span id="count">
-
-0
-
-</span>/8
-
-</div>
-
-
-
-
-
-<!-- BUNGA -->
-
-<div class="flower rose">
+<div class="flower"
+style="left:15%;bottom:80px;"
+onclick="showMsg('🌹','haloo ayii, makasi uda hadir yaa, aku bersyukur banget bisa kenal kamuu.')">
 🌹
 </div>
 
 
-<div class="flower tulip">
+<div class="flower"
+style="left:35%;bottom:120px;"
+onclick="showMsg('🌷','aku ga janji jadi orang paling sempurna, tapi aku bakal usahain jadi orang yang selalu sayang sama kamuu.')">
 🌷
 </div>
 
 
-<div class="flower sunflower">
+<div class="flower"
+style="left:55%;bottom:90px;"
+onclick="showMsg('🌻','kalo suatu hari kamu capee, sini cerita, aku mau dengerinn semuanya.')">
 🌻
 </div>
 
 
-<div class="flower sakura">
+<div class="flower"
+style="left:75%;bottom:130px;"
+onclick="showMsg('🌸','jujur ajaa, aku seneng banget tiap ada notif dari kamuu hehe.')">
 🌸
 </div>
 
 
-<div class="flower daisy">
-🌼
+
+<div id="message"></div>
+
+
 </div>
 
 
 
-<div class="flower hibiscus">
-🌺
-</div>
+
+<script>
+
+
+function openGarden(){
+
+document.getElementById("left").style.left="-50%";
+
+document.getElementById("right").style.right="-50%";
+
+
+setTimeout(()=>{
+
+document.getElementById("start").style.display="none";
+
+document.getElementById("garden").style.display="block";
+
+},1800);
+
+}
+
+
+
+function showMsg(flower,text){
+
+let box=document.getElementById("message");
+
+box.innerHTML=`
+<h2>${flower}</h2>
+
+<p>${text}</p>
+
+<button onclick="closeMsg()">close</button>
+
+`;
+
+box.style.display="block";
+
+}
+
+
+
+function closeMsg(){
+
+document.getElementById("message").style.display="none";
+
+}
+
+</script>
+
+</body>
+</html></div>
 
 
 <div class="flower lotus">
