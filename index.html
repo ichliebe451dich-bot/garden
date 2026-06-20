@@ -1,113 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Garden For Ayi</title>
-
-<style>
-
-body{
-margin:0;
-overflow:hidden;
-font-family:Arial;
-}
-
-#start{
-position:absolute;
-width:100%;
-height:100vh;
-background:#6c3fd6;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:10;
-}
-
-button{
-padding:18px 40px;
-font-size:25px;
-border:none;
-border-radius:50px;
-cursor:pointer;
-background:white;
-color:#6c3fd6;
-font-weight:bold;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-
-.door{
-position:absolute;
-top:0;
-width:50%;
-height:100vh;
-background:#7d52e5;
-transition:2s;
-z-index:9;
-}
-
-.left{
-left:0;
-}
-
-.right{
-right:0;
-}
-
-
-#garden{
-
-display:none;
-width:100%;
-height:100vh;
-
-background:linear-gradient(
-to top,
-#4CAF50 0%,
-#4CAF50 35%,
-#8fd3ff 100%
-);
-
-position:relative;
-overflow:hidden;
-}
-
-
-.flower{
-position:absolute;
-font-size:55px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.flower:hover{
-transform:scale(1.2);
-}
-
-
-#message{
-
-position:absolute;
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-display:none;
-
-max-width:320px;
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><style>
+body{margin:0;overflow:hidden;font-family:Arial}#start{position:fixed;inset:0;background:#6d38d8;display:flex;justify-content:center;align-items:center}button{padding:16px 35px;border-radius:30px;border:none;font-size:28px}.door{position:fixed;top:0;width:50%;height:100%;background:#7b4be6;transition:2s;z-index:2}.left{left:0}.right{right:0}#garden{display:none;position:fixed;inset:0;background:linear-gradient(#ffb0c8,#7cb6ff 60%,#48a548 61%)}.flower{position:absolute;font-size:34px;cursor:pointer;animation:s 2s infinite alternate}@keyframes s{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}#msg{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:20px;max-width:300px}</style></head><body>
+<div id=start><button onclick='openGarden()'>Enter Garden</button></div><div class='door left' id=l></div><div class='door right' id=r></div>
+<div id=garden><div class="flower" style="left:9%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:12%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:15%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:18%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:21%;bottom:60px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:10%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:13%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:16%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:19%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:22%;bottom:78px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:9%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:12%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:15%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:18%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:21%;bottom:96px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:10%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:13%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:16%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:19%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:22%;bottom:114px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:9%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:12%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:15%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:18%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:21%;bottom:132px" onclick="show('🌷',msgs[0])">🌷</div>
+<div class="flower" style="left:39%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:42%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:45%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:48%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:51%;bottom:60px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:40%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:43%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:46%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:49%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:52%;bottom:78px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:39%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:42%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:45%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:48%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:51%;bottom:96px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:40%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:43%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:46%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:49%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:52%;bottom:114px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:39%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:42%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:45%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:48%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:51%;bottom:132px" onclick="show('🌸',msgs[1])">🌸</div>
+<div class="flower" style="left:69%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:72%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:75%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:78%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:81%;bottom:60px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:70%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:73%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:76%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:79%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:82%;bottom:78px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:69%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:72%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:75%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:78%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:81%;bottom:96px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:70%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:73%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:76%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:79%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:82%;bottom:114px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:69%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:72%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:75%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:78%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
+<div class="flower" style="left:81%;bottom:132px" onclick="show('🌹',msgs[2])">🌹</div>
+<div id=msg></div></div>
+<script>
+msgs=['haloo ayii, makasi uda hadir yaa, aku bersyukur bisa kenal kamuu.','jujur ajaa aku seneng tiap ada notif dari kamuu hehe.','aku ga sempurna, tapi aku bakal usahain selalu sayang sama kamuu.'];
+function openGarden(){l.style.left='-50%';r.style.right='-50%';setTimeout(()=>{start.style.display='none';garden.style.display='block';},1800);}
+function show(f,t){msg.innerHTML='<h2>'+f+'</h2><p>'+t+'</p><button onclick="msg.style.display=\'none\'">close</button>';msg.style.display='block';}
+</script></body></html>max-width:320px;
 
 text-align:center;
 
